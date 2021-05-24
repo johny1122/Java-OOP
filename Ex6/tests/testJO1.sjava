@@ -1,0 +1,8 @@
+void foo() {
+	int a;
+	if(true) {
+		a=5;
+	}
+	int b=a;
+	return;
+}

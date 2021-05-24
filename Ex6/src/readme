@@ -1,0 +1,22 @@
+Error handling:
+In the beginning we checked if the lines are in the good format for each one of the possible format lines.
+If all the lines were okay we moved on to more detailed tests we moved on to more detailed tests that
+tested the content and logic. Once we found something illegal we threw an error exception with the
+concrete error message.
+In this way all the methods throw the exception up in the method's tree until it reaches the main method
+who handles the prints and exit the program.
+
+Design:
+We decided to divide the program into two packages. One that will be responsible for the checks and one
+that will contain the different types of objects we used.
+We created different objects for the scope, variable, method and method call. Each contained the fields
+associated with it.
+What made it very easy for us in the tests was the  the structure of the scope. In the scope class we
+added a field for the variables in the current scope and another one for the parent scope .This way it is
+very easy to climb up the method tree and look for variables in higher scopes.
+
+Adding new types:
+We saved all the valid types in a list (called validTypesList) so it will be easier to check if a string
+is a valid type by calling the method contains. So, for adding new types we just have to add them to this
+list. In addition we have 2 more methods which do type related checks (checkValueAndTypeFormat and
+checkAssignType). Both have switch logic so adding new types to them is also easy.

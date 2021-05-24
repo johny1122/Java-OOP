@@ -1,0 +1,59 @@
+yonatan11
+
+
+
+=============================
+=      File description     =
+=============================
+DirectoryProcessor.java
+Errors.java
+Filter.java
+FilterFactory.java
+Order.java
+OrderFactory.java
+Output.java
+Sort.java
+
+
+
+=============================
+=          Design           =
+=============================
+I decided to implement each part of the program in a different class so each class will have its own
+purpose according to the single choice principle. The main class is directoryProcessor which combine all the
+functionality of the program with the other classes.
+
+For the filter and order functions I created a factory class for each one of them which returns a the
+different types of filter and orders as necessary (according to the factory design).
+
+For the errors I made an errors class which throws the correct exceptions according to the error
+
+
+
+=============================
+=  Implementation details   =
+=============================
+To find all the type 2 errors before printing any warnings of file names I start to move over the file and
+just if I didn't found any type-2 errors I moved another time over the file and start filtering.
+
+Each filter I implemented as a FileFilter and override it's accept method. After that I filtered the
+files in the source directory with listFiles.
+
+For each order type I implemented a method which returns a Comparator of type File. This way for each
+order I sent the right Comparator to the sort algorithm which sorts according to this comparator.
+
+
+
+==========================
+=  Answers to questions  =
+==========================
+Sort:
+I decided to implement the sort algorithm with quicksort because this is a really efficient algorithm.
+For the database I decided to use a ArrayList collection because it's efficiency and also it is easier
+to reverse the order with it.
+
+errors:
+For each error I throw the correct exception and the calling function act as necessary (print the right error
+or warning message). Errors with the same exceptions will have the same Error/warning messages.
+If the error was a general error during the run-time I used decided the best choice was to use the
+RuntimeException.

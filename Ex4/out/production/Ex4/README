@@ -1,0 +1,67 @@
+yonatan11
+
+
+
+=============================
+=      File description     =
+=============================
+SimpleHashSet.java - implementation of SimpleHashSet class
+OpenHashSet.java - implementation of OpenHashSet class
+ClosedHashSet.java - implementation of ClosedHashSet class
+CollectionFacadeSet.java - implementation of CollectionFacadeSet class
+SimpleSetPerformanceAnalyzer.java - implementation of SimpleSetPerformanceAnalyzer class
+SingleLinkedList.java - implementation of SingleLinkedList class
+
+
+
+=============================
+=          Design           =
+=============================
+--- solving the issue with deletion/searching in ClosedHash ---
+I defined the array to have elements of type 'Object'. This way I can insert into it more than 1 type of
+elements. Then, I created an inner private class named 'Deleted' which represents a deleted element. When I
+delete an element I replace the String with new object of type 'Deleted'. This way when I search an element, I
+will know it is not contained if I reached a null object at the end of the for loop (Deleted != null). Also
+this solution has constant space and time as required :)
+
+
+
+=============================
+=  Implementation details   =
+=============================
+--- SimpleHashSet ---
+I decided to implement in this class all the methods which are general enough to all HashSets - size,
+capacity and loadFactor. Another method which is necessary to HashSet is resize but this method is unique in
+each HashSet type so I kept it abstract.
+
+--- implementation of OpenHashSet's table ---
+I decided to Implement the linked-list of strings as a wrapper class named SingleLinkedList. This object
+representing a single linked-list of strings. This way I can define an array of SingleLinkedList objects.
+
+
+
+===================================================
+=    Answers to questions - Performance Analysis  =
+===================================================
+--- bad results for data1 ---
+OpenHashSet: not so efficient for adding and also to check if a string contain with many string with
+the same hash because it is needed to move over a long linkedList.
+ClosedHashSet: not efficient to add many elements with the same hashcode and also to search an element with
+the same hashcode as mote of the elements because the quadratic probing is too long.
+
+--- summary ---
+for all the purposes the HashSet got the shortest performance than all the other structures.
+LinkedList is mostly not efficient for those purposes in the exercise because it doesnt use of hashcode
+placing which is faster.
+TreeSet is also an efficient structure to used but a little bit less than HashSet.
+Out OpenHash and ClosedHash are efficient just if the data has natural mixture of the elements and their
+hashcodes.
+Between them it is less efficient to add data with the same hashcode with ClosedHash and also to check if an
+element is in it when allot of elements have the same hashcode. So from all the performance it seems like
+between both of them the OpenHash is more efficient to use.
+
+--- compare our to java's ---
+From the performance it looks like the java built in HashSet it much more efficient than our and especially on
+data1. Maybe the built in java HashSet is combining some features from several structures and choose on which
+one to operate to minimize the running time. Another thought is that it resizing it's table more efficiently
+by saving another table with a bigger size and doesnt need to copy each time all the elements.

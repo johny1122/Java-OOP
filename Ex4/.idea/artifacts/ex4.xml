@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ex4">
+    <output-path>$PROJECT_DIR$/out/artifacts/ex4</output-path>
+    <root id="archive" name="ex4.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/src/ClosedHashSet.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/CollectionFacadeSet.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/OpenHashSet.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/README" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/RESULTS" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/SimpleHashSet.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/SimpleSetPerformanceAnalyzer.java" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/SingleLinkedList.java" />
+    </root>
+  </artifact>
+</component>

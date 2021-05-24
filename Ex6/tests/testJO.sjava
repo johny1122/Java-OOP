@@ -1,0 +1,5 @@
+void soo() {
+	double b = +2;
+	return;
+}
+

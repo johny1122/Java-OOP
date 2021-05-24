@@ -1,0 +1,89 @@
+yonatan11
+
+
+
+=============================
+=      File description     =
+=============================
+Storage.java - implements an abstract class of storage.
+Locker.java - implements the Locker class.
+LockerTest.java - test the implementation of Locker class.
+LongTermStorage.java - implements the LongTermStorage class.
+LongTermStorageTest.java - test the implementation of LongTermStorage class.
+Spaceship.java - implements the Spaceship class.
+SpaceshipTest.java - test the implementation of Spaceship class.
+SpaceshipDepositoryTest.java - test class to run LockerTest, LongTermStorageTest and SpaceshipTest.
+
+BoopingSite.java - implements the Locker class.
+BoopingSiteTest.java - test the implementation of Locker class.
+ProximityCompare.java - implements the hotels proximity compare class
+RatingCompare.java - implements the hotels rating star compare class
+
+
+
+
+=============================
+=          Design           =
+=============================
+Spaceship Depository:
+The Locker and the LongTermStorage have a lot of methods in common so I decided to create an abstract
+class of generic storage. At the beginning I wanted to make it an Interface with default methods but I
+found out it is only available from version 8 (and we must use version 6), I chose to make the Storage class
+as abstract. The only method they both have to implement from the Storage is addItem because each one of them
+add an item with different conditions. In addition, both of them have uniq methods the other one doesnt have
+so an abstract design is a good choice to avoid code duplication (like remove/resetInventory).
+Another thing is that I didnt stored the Id when creating the locker because there is no use or future
+connection between them in the exercise and I wanted to save memory space.
+
+For the test I used the Before method to reset the tested variables before running each new test method.
+This way we can separate and distinguish between the different results independently without waring other
+test methods may influenced the results.
+
+-----------------------------------------------
+
+BoopingSite:
+For the comparators I created two additional classes, RatingCompare and ProximityCompare. I decided to make
+them and not override the compareTo method because we need 2 different comparators and with override it is
+possible to override only one comparator.
+There were 2 ways of implementing the getHotelsInCityByProximity method. One is to sort all the hotels in the
+database and then filtering the given city, or the Second way to filter first and then sort. I chose to do the
+second way because I think is it has less running time (instead of moving twice over all the hotels, the
+second way only move one time over all of them and do the sort on the smaller filtered list.
+In both the getHotelsByProximity and getHotelsInCityByProximity I use the same compare class I created and the
+different is that getHotelsInCityByProximity makes the sort on a list received from allHotelsInCity.
+
+
+
+
+=============================
+=  Implementation details   =
+=============================
+Spaceship Depository:
+I decided to implement the itemsCount as a TreeMap because almost all the uses of it are containsKey, get,
+put and remove operations which TreeMap is guaranteed to provide with log(n) very low time cost.
+Because of my design I dont print the printout of "there is no room for items in LTS" in addItem of Locker
+because it was already printed in the addItem of the LTS when I checked for room in it.
+In the method addItem I decided to add 3 new private methods:
+moreThan50-     which will check if the given item take more the 50% of locker's space.
+tryToAddToLTS-  check if locker can keep all 20% of the item or not. if the locker can the method calls the
+                addItemsToLockerAndLTS.
+addItemsToLockerAndLTS -    check if there is enough space in LTS. If the LTS does have, the method will add
+                            the correct amount to the locker and the LTS.
+
+In the Spaceship class I decided to keep the lockers in an array of lockers and also to store the current
+number of lockers in a specific private variable to keep track after this amount and to easily add new
+lockers to the lockers array.
+
+-----------------------------------------------
+
+BoopingSite:
+I decided to keep the all the hotels in the ArrayList collection. this way it is easier to resize the array
+size on the fly and also use the Collections.sort method to sort the ArrayList as necessary. The return value
+of each method uses the toArray method from the collection to change back the ArrayList to the desired normal
+array (Hotel[]).
+To make the code more clear I added a private method (allHotelsInCity) which returns all the hotels in the
+given city (used in getHotelsInCityByRating and getHotelsInCityByProximity).
+
+For the tests I ran each dataset on every test so all the dataset possibilities will be tested. In addition I
+added a few "if" statement for the empty and "one city" dateset to test related things to them specific.
+

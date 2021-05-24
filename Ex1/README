@@ -1,0 +1,33 @@
+yonatan11
+
+
+
+=============================
+=      File description     =
+=============================
+Book.java - implements the Book class.
+Patron.java - implements the Patron class.
+Library.java - implements the Library class.
+
+
+
+=============================
+=          Design           =
+=============================
+I chose to store the patrons and the books in an array and their ids will be 
+the index of the cell in the array they have been stored into.
+This way it is easier to access them.
+Also, I decided to store in 2 variables the current number of books and
+patron registered to the library. This makes the loops run much less
+iterations then necessry (better efficiency)
+
+
+=============================
+=  Implementation details   =
+=============================
+To get an id of a book or a patron that alreay have been registered I
+go over a loop until the object is equal to the given object.
+Also, to find the number of books a given patron is currently
+borrowing I go over a loop of all the books in the library and checks
+if the currentBorrowerId is the same as the id of the patron.
+

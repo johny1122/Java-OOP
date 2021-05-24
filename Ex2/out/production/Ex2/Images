@@ -1,0 +1,22 @@
+    /** define Ship1 image*/
+    protected static final String IMAGE_SHIP1_PATH = "SHIP1.png";
+    protected static final int IMAGE_SHIP1_HEIGHT = 50;
+    protected static final int IMAGE_SHIP1_WIDTH = 80;
+    protected static final Image SHIP1 = new ImageIcon(IMAGE_SHIP1_PATH, "").
+            getImage().getScaledInstance(IMAGE_SHIP1_WIDTH, IMAGE_SHIP1_HEIGHT, Image.SCALE_FAST);
+
+    /** define Ship1-Shield image*/
+    protected static final String IMAGE_SHIP1_SHIELD_PATH = "SHIP1-SHIELD.png";
+    protected static final int IMAGE_SHIP1_SHIELD_HEIGHT = 50;
+    protected static final int IMAGE_SHIP1_SHIELD_WIDTH = 80;
+    protected static final Image SHIP1_SHIELD = new ImageIcon(IMAGE_SHIP1_SHIELD_PATH, "").
+            getImage().getScaledInstance(IMAGE_SHIP1_SHIELD_WIDTH, IMAGE_SHIP1_SHIELD_HEIGHT, Image.SCALE_FAST);
+
+
+
+    /** define Ship2 image*/
+    protected static final String IMAGE_SHIP2_PATH = "SHIP2.png";
+    protected static final int IMAGE_SHIP2_HEIGHT = 80;
+    protected static final int IMAGE_SHIP2_WIDTH = 100;
+    protected static final Image SHIP2 = new ImageIcon(IMAGE_SHIP1_PATH, "").
+            getImage().getScaledInstance(IMAGE_SHIP1_WIDTH, IMAGE_SHIP1_HEIGHT, Image.SCALE_FAST);

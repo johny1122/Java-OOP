@@ -1,0 +1,60 @@
+yonatan11
+
+
+
+=============================
+=      File description     =
+=============================
+SpaceShip.java - implements the SpaceShip class.
+SpaceShipFactory.java - implements the SpaceShipFactory class.
+Human.java - implements the Human spaceship class.
+Aggressive.java - implements the Aggressive spaceship class.
+Basher.java - implements the Basher spaceship class.
+Drunkard.java - implements the Drunkard spaceship class.
+Runner.java - implements the Runner spaceship class.
+Special.java - implements the Special spaceship class.
+
+
+
+=============================
+=          Design           =
+=============================
+I chose to implement the spaceship class as an abstract class. I think that 
+the spaceship class should be a format for all the spaceships. This way I decided
+to make the doAction() and getImage() as abstract methods and all the others
+as normal methods. During the design I understoon that only those 2 methods should 
+be uniqe to each different spaceship type and all the others should do the same
+because the basic operations are the same.
+
+This way it is easier to add more functionality to all the spaceships and
+by adding one method to the SpaceShip class and editing each 
+spaceship type accordingly.
+Also, each data member or constant variable in the SpaceShip class who
+is necessry for the subclasses of the different type is declared as
+proteted to keep the API minimal and also not duplicate some code.
+
+I think the undestandability of my program is good because I design
+it as all the different types of spaceships are subclasses of the
+main SpaceShip class and each one of them implement his
+uniqe behavior and appearance.
+
+
+
+=============================
+=  Implementation details   =
+=============================
+Drunkard spaceship - This ship is drunk so it always accelerates to the left.
+It always tries to fire and it turns on and off the shield every 50 rounds.
+
+Special spaceship - This ship is from a parallel universe of the Human
+spaceship. It will turn to the opposite direction as the Human spaceship
+and will fire and turn on the shield when the Human spaceship does but will
+also teleport when the Human fires - this is because it has a spy on the
+Human spaceship that sends messages from the cockpit about his
+plan (I wonder who it could be...).
+
+Because the shield should reset each round I decided to add a reset
+step to the doAction() methos which will reset the shield to false 
+at the beginning of method.
+
+

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ex3_resources1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ex3_resources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
